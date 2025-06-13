@@ -14,8 +14,14 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded"
 )
-plt.rcParams['font.sans-serif'] = ['SimHei']
-plt.rcParams['axes.unicode_minus'] = False
+
+import matplotlib.font_manager as fm
+# 添加字体搜索路径
+font_path = "font/MSYH.TTC"
+fm.fontManager.addfont(font_path)
+# 设置使用该字体
+plt.rcParams['font.family'] = 'Microsoft YaHei'  # 替换为字体的名称
+plt.rcParams['axes.unicode_minus'] = False # 解决负号显示问题
 
 class Box:
     def __init__(self, length, width, height):
